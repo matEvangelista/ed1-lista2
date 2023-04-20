@@ -55,4 +55,12 @@ public class Fila
 	  else
 	    return false;
 	}
+
+	public int getN() {
+		return n;
+	}
+
+	public int getTamanho() {
+		return tamanho;
+	}
 }

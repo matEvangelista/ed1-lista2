@@ -1,15 +1,20 @@
 package questao6;
 
+import classes.Fila;
+import classes.FilaDupla;
+
 public class Main {
     public static void main(String[] args) {
-        int[] nums = {0,0,1,1,1};
-
+        System.out.println(numeroAlgarismos(16, 0));
     }
 
-    public static int[] soma1(int[] nums) {
-        int[] resultado = new int[10];
-        int carry = 0;
-
-        return resultado;
+    // número de algarismos que o número em decimal tem em binário
+    public static int numeroAlgarismos(int num, int contador) {
+        if (num == 0)
+            return contador;
+        return numeroAlgarismos(num / 2, ++contador);
     }
+
+    // vou reaproveitar o método estático da questão 4
+
 }

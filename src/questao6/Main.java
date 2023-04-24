@@ -39,7 +39,7 @@ public class Main {
         } else if (soma == 2) {
             resultado.insereInicio(0);
             carry = 1;
-        } else {
+        } else { // soma == 0
             resultado.insereInicio(0);
             carry = 0;
         }

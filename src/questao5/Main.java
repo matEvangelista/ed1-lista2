@@ -19,6 +19,7 @@ public class Main {
 
         // agora, removendo um cliente por vez
         while (!filaLoja.estaVazia()) {
+            System.out.println("Próximo cliente...");
             filaLoja.atendeCliente();
             System.out.println(filaLoja);
         }

@@ -10,26 +10,28 @@ public class Main {
         System.out.print("Digite um número (não muito grande, de preferência): ");
         int num = scanner.nextInt();
 
-        FilaDupla filaDupla = new FilaDupla(numeroAlgarismos(num, 0));
+        FilaDupla filaDupla = new FilaDupla(numeroAlgarismos(num));
         filaDupla.insere(0); // naturalmente
 
         for (int i = 0; i < num; i++) {
-            filaDupla = soma1(filaDupla, new FilaDupla(filaDupla.getTamanho()), 1);
+            filaDupla = soma1(filaDupla);
             System.out.printf("%d: %s\n", i + 1, filaDupla); // uso do toString
         }
     }
 
-    // número de algarismos que o número em decimal tem em binário
-    public static int numeroAlgarismos(int num, int contador) {
-        if (num == 0)
-            return contador;
-        return numeroAlgarismos(num / 2, ++contador);
+    // número de entradas que o número em decimal tem em binário
+    public static int numeroAlgarismos(int num) {
+        int contador = 0;
+        while (num > 0) {
+            num /= 2;
+            contador++;
+        }
+        return contador;
     }
 
     public static FilaDupla soma1(FilaDupla filaDupla, FilaDupla resultado, int carry) {
         if (filaDupla.vazia()) {
-            if (carry == 1)
-                resultado.insereInicio(1);
+            if (carry == 1) resultado.insereInicio(1); // Se sobrou algum número 1 da soma. Por ex: 1111 + 1
             return resultado;
         }
         int soma = carry + filaDupla.removeFim();
@@ -47,5 +49,8 @@ public class Main {
 
     }
 
+    public static FilaDupla soma1(FilaDupla filaDupla) {
+        return soma1(filaDupla, new FilaDupla(filaDupla.getTamanho()), 1);
+    }
 
 }
